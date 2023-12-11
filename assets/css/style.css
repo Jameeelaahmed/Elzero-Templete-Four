@@ -1,0 +1,413 @@
+/* ! Global */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+*{
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Open Sans", "sans-serif";
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+:root{
+    --blue-color: #0075ff;
+    --blue-alt-color: #0d69d5;
+    --orange-color: #f59e0b;
+    --green-color: #22c55e;
+    --red-color: #f44336;
+    --grey-color: #888;
+    --maincolor:#f1f5f9;
+    --secondary-color:#f7f7f7;
+    --white:white;
+    --black:black;
+    --padding:20px;
+    --shadowOne: 0 0 10px #ddd;
+    --shadowTwo: 0 0 10px #343333;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--black);
+}
+
+/* ! Global */
+
+.page{
+    display: flex;
+    min-height: 200vh;
+    background-color: #f1f5f9;
+}
+
+
+/* !START SIDEBAR */
+.page .sidebar{
+    background-color: var(--black);
+    color: white;
+    padding: var(--padding);
+    position: relative;
+    width: 250px;
+    box-shadow: var(--shadowTwo);
+}
+
+.page .sidebar h3{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.page .sidebar a{
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 10px;
+    transition: 0.4s;
+    margin-bottom: 5px;
+}
+
+.page .sidebar a:hover,
+.page .sidebar a.active{
+    background-color: var(--secondary-color);
+    color: var(--black);
+}
+
+.page .sidebar span{
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+@media(max-width:767px){
+    .page .sidebar{
+        width: 62px;
+        padding: 10px;
+    }
+
+    .page .sidebar >h3{
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .page .sidebar ul li a{
+        justify-content: center;
+    }
+
+    .page .sidebar ul li span{
+        display: none;
+    }
+}
+
+@media(min-width:768px){
+    .page .sidebar h3::before{
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 2px;
+        border-radius:1px ;
+        background-color: white;
+        bottom: -7px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .page .sidebar h3::after{
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        background-color: var(--white);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: var(--black) 4px solid;
+    }
+    
+}
+
+/* !END SIDEBAR */
+
+/* ! START CONTENT */
+.content{
+    width: 100%;
+    overflow: hidden;
+}
+header{
+    background-color: var(--black);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .search{
+    position: relative;
+}
+
+header .search::before{
+    font-family: "Font Awesome 6 Free";
+    content: "\f002";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+    font-size: 14px;
+    color: var(--grey-color);
+}
+
+.search input{
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-left: 5px;
+    padding-left: 35px;
+    width: 160px;
+    transition: width 0.4s;
+    caret-color: var(--grey-color);
+}
+
+.search input:focus{
+    outline: none;
+    width: 200px;
+}
+
+.search input::placeholder{
+    transition: opacity 0.4s;
+}
+
+.search input:focus::placeholder{
+    opacity: 0;
+}
+
+header img{
+    width: 30px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+
+.profile i{
+    color: var(--white);
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* *START DASH */
+.dash > h1{
+    padding: var(--padding);
+    position: relative;
+    width: fit-content;
+}
+
+.dash >h1::before{
+    content: "";
+    position: absolute;
+    width: calc(100% - 30px);
+    height: 4px;
+    background-color: white;
+    bottom: 10px;
+    left: 20px;
+}
+
+.dash > h1::after{
+    content: "";
+    position: absolute;
+    width: 50%;
+    left: 0;
+    height: 4px;
+    background-color: black;
+    bottom: 10px;
+    left: 20px;
+}
+
+.dash-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 20px;
+    padding: var(--padding);
+}
+
+@media (max-width:767px){
+    .dash-content{
+        grid-template-columns: minmax(250px,1fr);
+        gap: 10px;
+    }
+}
+
+/* todo CARD-1 */
+.profile-dash{
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadowOne);
+    padding-bottom: 60px;
+}
+
+.upper-info{
+    display: flex;
+    justify-content: space-between;
+    background-color:var(--secondary-color);
+    padding: var(--padding);
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.upper-info .image img{
+    width: 200px;
+    max-width: 100%;
+}
+
+.dash .profile-dash >img{
+    width: 64px;
+    height: 64px;
+    border: 2px white solid;
+    border-radius: 50%;
+    padding: 2px;
+    box-shadow: var(--shadowOne);
+    margin-left: 10px;
+    margin-top: -32px;
+    position:relative;
+}
+
+@media (max-width:768px){
+    .upper-info{
+        justify-content: center;
+    }
+    
+    .upper-info .image img{
+        display: none;
+    }
+
+    .dash .dash-content .card:first-child .info{
+        flex-direction: column;
+    }
+
+    .dash .profile-dash >img{
+        text-align: center;
+    }
+}
+
+.dash .dash-content .profile-dash .info{
+    display: flex;
+    flex: 1;
+    padding: var(--padding);
+    gap: 20px;
+    /* margin-top: 40px; */
+    justify-content: space-around;
+    border-top:#ddd 1px solid;
+    border-bottom:#ddd 1px solid;
+    text-align: center;
+}
+
+.dash .dash-content .profile-dash .info span{
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* todo END CARD-1 */
+
+.dash .dash-content .profile-dash a,
+.dash .dash-content .draft a{
+    display: block;
+    padding: 15px;
+    background-color: var(--black);
+    width: fit-content;
+    color: var(--white);
+    margin:10px 15px 15px auto;
+    border-radius: 8px;
+    box-shadow: var(--shadowOne);
+    font-size: 14px;
+    transition: 0.4s;
+}
+
+.dash .dash-content .profile-dash a:hover,
+.dash .dash-content .draft a:hover{
+    background-color: var(--red-color);
+    color: white;
+}
+
+/* todo START CARD-2 */
+
+.draft{
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadowOne);
+    padding-bottom: 60px;
+}
+
+.draft p{
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.draft input[type="text"],
+.draft textarea{
+    padding: 15px 15px 10px;
+    border: none;
+    background-color: rgb(238 238 238);
+    border-radius: 7px;
+}
+
+.draft textarea{
+    margin-top: 10px;
+    height: 150px;
+    resize: none;
+}
+
+.draft input[type="text"]:focus,
+.draft textarea:focus{
+    outline: none;
+}
+
+.draft input[type="text"]::placeholder,
+.draft textarea::placeholder{
+    transition: opacity 0.4s;
+}
+
+
+.draft input[type="text"]:focus::placeholder,
+.draft textarea:focus::placeholder{
+    opacity: 0;
+}
+
+/* todo END CARD-2 */
+
+
+/* todo START CARD-3 */
+/* todo END CARD-3 */
+
+/* *END DASH */
+
+/* ! END CONTENT */
+
